@@ -1,0 +1,1 @@
+web: gunicorn vivid2022.wsgi --log-file -
