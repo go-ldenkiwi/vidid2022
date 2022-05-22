@@ -1,1 +1,1 @@
-web: gunicorn vivid2022.wsgi --log-file -
+web: gunicorn vidid2022.wsgi --log-file -
