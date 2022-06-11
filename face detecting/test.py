@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 from PIL import ImageFont, ImageDraw, Image
 import datetime
 
+#동영상 비식별화(구분)
+
 detector = dlib.get_frontal_face_detector()
 sp = dlib.shape_predictor('models/shape_predictor_68_face_landmarks.dat')
 facerec = dlib.face_recognition_model_v1('models/dlib_face_recognition_resnet_model_v1.dat')

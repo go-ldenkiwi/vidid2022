@@ -1,5 +1,7 @@
 import cv2
 
+#이미지 비식별화
+
 xml = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_default.xml')
 img = cv2.imread('image/md.jpg')
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)

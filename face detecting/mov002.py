@@ -5,6 +5,7 @@ import datetime
 
 from cv2 import CAP_FIREWARE
 
+#동영상 비식별화
 
 xml = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_alt.xml')
 
