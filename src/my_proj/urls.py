@@ -15,9 +15,8 @@ urlpatterns = [
     path("about/", views.AboutPage.as_view(), name="about"),
     path("users/", include(profiles.urls)),
     path("admin/", admin.site.urls),
-    path('posts/', include('posts.urls')),
     path("", include(accounts.urls)),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 
 # User-uploaded files like profile pics need to be served in development
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
