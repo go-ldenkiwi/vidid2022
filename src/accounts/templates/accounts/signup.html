@@ -2,16 +2,16 @@
 
 {% load crispy_forms_tags %}
 
-{% block title %}{{ block.super }}Sign Up{% endblock %}
+{% block title %}{{ block.super }}회원가입{% endblock %}
 
-{% block form_heading %}Signing Up is Free{% endblock %}
+{% block form_heading %}회원가입{% endblock %}
 
 {% block form %}
   {% crispy form %}
 
   <div class="form-message">
     <p>
-      Already signed up? <a href="{% url 'accounts:login' %}">Log in</a>.
+      이미 계정이 있나요? <a href="{% url 'accounts:login' %}">로그인</a>.
     </p>
   </div>
 {% endblock form %}

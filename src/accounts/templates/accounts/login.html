@@ -2,16 +2,16 @@
 
 {% load crispy_forms_tags %}
 
-{% block title %}{{ block.super }}Log In{% endblock %}
+{% block title %}{{ block.super }}로그인{% endblock %}
 
-{% block form_heading %}Please Log In{% endblock %}
+{% block form_heading %}로그인 해주세요{% endblock %}
 
 {% block form %}
   {% crispy form %}
 
   <div class="form-message">
     <p>
-      Don't have an account? <a href="{% url 'accounts:signup' %}">Sign up</a>.
+      계정이 없나요? <a href="{% url 'accounts:signup' %}">회원가입하기!</a>.
     </p>
   </div>
 {% endblock form %}
