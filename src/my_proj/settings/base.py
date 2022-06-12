@@ -97,7 +97,14 @@ WSGI_APPLICATION = "my_proj.wsgi.application"
 DATABASES = {
     # Raises ImproperlyConfigured exception if DATABASE_URL not in
     # os.environ
-    "default": env.db()
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', #1
+        'NAME': 'vidid', #2
+        'USER': 'root', #3                      
+        'PASSWORD': '0000',  #4              
+        'HOST': 'localhost',   #5                
+        'PORT': '3306', #6
+    }
 }
 
 # Internationalization
