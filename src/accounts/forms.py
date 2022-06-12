@@ -17,15 +17,15 @@ class LoginForm(AuthenticationForm):
         self.fields["username"].widget.input_type = "email"  # ugly hack
 
         self.helper.layout = Layout(
-            Field("username", placeholder="Enter Email", autofocus=""),
-            Field("password", placeholder="Enter Password"),
+            Field("username", placeholder="이메일을 입력하세요.", autofocus=""),
+            Field("password", placeholder="패스워드를 입력하세요."),
             HTML(
-                '<a href="{}">Forgot Password?</a>'.format(
+                '<a href="{}">패스워드를 잃어버리셨나요?</a>'.format(
                     reverse("accounts:password-reset")
                 )
             ),
             Field("remember_me"),
-            Submit("sign_in", "Log in", css_class="btn btn-lg btn-primary btn-block"),
+            Submit("sign_in", "로그인", css_class="btn btn-lg btn-primary btn-block"),
         )
 
 
