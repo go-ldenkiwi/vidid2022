@@ -4,14 +4,14 @@
 
 {% block title %}{{ block.super }}Sign Up{% endblock %}
 
-{% block form_heading %}Signing Up is Free{% endblock %}
+{% block form_heading %}회원가입{% endblock %}
 
 {% block form %}
   {% crispy form %}
 
   <div class="form-message">
     <p>
-      Already signed up? <a href="{% url 'accounts:login' %}">Log in</a>.
+      이미 가입되었나요? <a href="{% url 'accounts:login' %}"> 로그인하러 가기</a>
     </p>
   </div>
 {% endblock form %}
