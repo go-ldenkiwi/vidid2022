@@ -21,6 +21,9 @@ class BaseProfile(models.Model):
     class Meta:
         abstract = True
 
+class UserDoc(models.Model):   
+    faceimg = models.ImageField(upload_to='images_uploaded',null=True)
+    UserVideo = models.FileField(upload_to='videos_uploaded',null=True)
 
 @python_2_unicode_compatible
 class Profile(BaseProfile):
