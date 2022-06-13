@@ -40,7 +40,7 @@ class SignUpView(
     model = User
     template_name = "accounts/signup.html"
     success_url = reverse_lazy("home")
-    form_valid_message = "You're signed up!"
+    form_valid_message = "회원가입 되었습니다"
 
     def form_valid(self, form):
         r = super().form_valid(form)
@@ -60,8 +60,8 @@ class PasswordChangeView(authviews.PasswordChangeView):
         form.save()
         messages.success(
             self.request,
-            "Your password was changed, "
-            "hence you have been logged out. Please relogin",
+            "비밀번호가 초기화 되었습니다, "
+            "로그아웃하고 다시 로그인 해주세요",
         )
 
         return super().form_valid(form)
