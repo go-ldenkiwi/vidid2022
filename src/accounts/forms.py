@@ -17,8 +17,8 @@ class LoginForm(AuthenticationForm):
         self.fields["username"].widget.input_type = "email"  # ugly hack
 
         self.helper.layout = Layout(
-            Field("username", placeholder="이메일을 입력하세요.", autofocus=""),
-            Field("password", placeholder="패스워드를 입력하세요."),
+            Field("username", placeholder="E-mail", autofocus=""),
+            Field("password", placeholder="Password"),
             HTML(
                 '<a href="{}">패스워드를 잃어버리셨나요?</a>'.format(
                     reverse("accounts:password-reset")
@@ -36,11 +36,11 @@ class SignupForm(authtoolsforms.UserCreationForm):
         self.fields["email"].widget.input_type = "email"  # ugly hack
 
         self.helper.layout = Layout(
-            Field("email", placeholder="Enter Email", autofocus=""),
-            Field("name", placeholder="Enter Full Name"),
-            Field("password1", placeholder="Enter Password"),
-            Field("password2", placeholder="Re-enter Password"),
-            Submit("sign_up", "Sign up", css_class="btn-warning"),
+            Field("email", placeholder="Email", autofocus=""),
+            Field("name", placeholder="이름"),
+            Field("password1", placeholder="Password"),
+            Field("password2", placeholder="Password 확인"),
+            Submit("sign_up", "회원가입", css_class="btn-warning"),
         )
 
 
