@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 from django.urls import reverse_lazy
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / "directory"
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -57,7 +58,9 @@ if env_file.exists():
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Raises ImproperlyConfigured exception if SECRET_KEY not in os.environ
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = config('SECRET_KEY')
+# cast=bool 이 없으면 False 를 문자열로 인식하게됨.
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -79,6 +82,7 @@ INSTALLED_APPS = (
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -99,9 +103,9 @@ DATABASES = {
     # os.environ
     'default': {
         'ENGINE': 'django.db.backends.mysql', #1
-        'NAME': 'vidid', #2
+        'NAME': 'mysql', #2
         'USER': 'root', #3                      
-        'PASSWORD': '0000',  #4              
+        'PASSWORD': 'mysql',  #4              
         'HOST': 'localhost',   #5                
         'PORT': '3306', #6
     }
@@ -125,7 +129,9 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-ALLOWED_HOSTS = []
+STATIC_ROOT = BASE_DIR / 'staticfiles' 
+
+ALLOWED_HOSTS = ['*']
 
 # Crispy Form Theme - Bootstrap 3
 CRISPY_TEMPLATE_PACK = "bootstrap3"
@@ -145,3 +151,8 @@ THUMBNAIL_EXTENSION = "png"  # Or any extn for your thumbnails
 DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': lambda r: False, 
 }
+
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
