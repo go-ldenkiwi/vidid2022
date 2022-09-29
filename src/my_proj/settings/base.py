@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 from django.urls import reverse_lazy
 from pathlib import Path
 from decouple import config
+import my_settings
 
 # Build paths inside the project like this: BASE_DIR / "directory"
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -58,7 +59,7 @@ if env_file.exists():
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Raises ImproperlyConfigured exception if SECRET_KEY not in os.environ
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = my_settings.SECRET_KEY
 # cast=bool 이 없으면 False 를 문자열로 인식하게됨.
 DEBUG = config('DEBUG', default=False, cast=bool)
 
@@ -98,18 +99,7 @@ WSGI_APPLICATION = "my_proj.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-DATABASES = {
-    # Raises ImproperlyConfigured exception if DATABASE_URL not in
-    # os.environ
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'vidid2022', #2
-        'USER': 'cdh', #3                      
-        'PASSWORD': '0000',  #4              
-        'HOST': 'localhost',   #5                
-        'PORT': '3306', #6
-    }
-}
+DATABASES = my_settings.DATABASES
 
 
 # Internationalization
