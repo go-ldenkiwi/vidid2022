@@ -15,9 +15,7 @@
       <a href="{% url 'profiles:edit_self' %}" class="btn btn-info">프로필 변경</a>
       {% endif %}
       <form action="/fileurl/" method="post">
-        <label for="video">영상편집 </label>
-        <input id="video" type="file" name="name_field">
-        <input type="submit" value="편집">
+        
       </form>
     </div>
     <div class="col-sm-2"><img title="profile picture" class="img-circle img-responsive" src="{% thumbnail show_user.profile.picture|default:'default_profile.png' 140x140 crop %}">
@@ -57,7 +55,10 @@
         <div class="panel-body">
 	  <strong>상태메세지</strong>: {{ show_user.profile.bio }}
 	</div>
-      </div>
+    </div>
+    <label for="video">영상편집 </label>
+        <input id="video" type="file" name="name_field">
+        <input type="submit" value="편집">
     </div>
   </div>
 </div>

@@ -98,18 +98,21 @@ WSGI_APPLICATION = "my_proj.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-DATABASES = {
-    # Raises ImproperlyConfigured exception if DATABASE_URL not in
-    # os.environ
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', #1
-        'NAME': 'mysql', #2
-        'USER': 'root', #3                      
-        'PASSWORD': '0000',  #4              
-        'HOST': 'localhost',   #5                
-        'PORT': '3306', #6
-    }
-}
+# DATABASES = {
+#     # Raises ImproperlyConfigured exception if DATABASE_URL not in
+#     # os.environ
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3', #2
+#         'USER': 'root', #3                      
+#         'PASSWORD': '0000',  #4              
+#         'HOST': 'localhost',   #5                
+#         'PORT': '3306', #6
+#     }
+# }
+import my_settings
+
+DATABASES = my_settings.DATABASES
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
