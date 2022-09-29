@@ -62,7 +62,7 @@ SECRET_KEY = config('SECRET_KEY')
 # cast=bool 이 없으면 False 를 문자열로 인식하게됨.
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -98,21 +98,19 @@ WSGI_APPLICATION = "my_proj.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-# DATABASES = {
-#     # Raises ImproperlyConfigured exception if DATABASE_URL not in
-#     # os.environ
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3', #2
-#         'USER': 'root', #3                      
-#         'PASSWORD': '0000',  #4              
-#         'HOST': 'localhost',   #5                
-#         'PORT': '3306', #6
-#     }
-# }
-import my_settings
+DATABASES = {
+    # Raises ImproperlyConfigured exception if DATABASE_URL not in
+    # os.environ
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'vidid2022', #2
+        'USER': 'cdh', #3                      
+        'PASSWORD': '0000',  #4              
+        'HOST': 'localhost',   #5                
+        'PORT': '3306', #6
+    }
+}
 
-DATABASES = my_settings.DATABASES
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
